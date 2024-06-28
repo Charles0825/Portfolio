@@ -9,6 +9,17 @@
 
 :root {
   --pad-val: 0 350px;
+  --nav-font: 18px;
+  --nav-fontw: 400px;
+  --home-h1: 50px;
+  --home-p: 25px;
+  --home-fw: 400px;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
 
 a {
@@ -17,7 +28,7 @@ a {
 }
 
 li {
-  list-style: none;
+  list-style-type: none;
 }
 
 nav {
@@ -27,9 +38,11 @@ nav {
 
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: space-between;
 
   position: absolute;
+  background: #070808;
+  transition: all 0.5s ease;
 }
 
 nav ul {
@@ -39,13 +52,24 @@ nav ul {
 
 nav ul li a {
   color: #fff;
-  font-size: 18px;
-  font-weight: 400;
+  font-size: var(--nav-font);
+  font-weight: var(--nav-fontw);
   transition: all 0.5s ease;
 }
 
 nav ul li a:hover {
   color: #0f57e1;
+}
+
+nav .logo h1 {
+  color: #fff;
+  font-weight: var(--nav-fontw);
+}
+
+.menu-icon {
+  color: #fff;
+  font-size: 25px;
+  display: none;
 }
 
 #home {
@@ -60,13 +84,13 @@ nav ul li a:hover {
 
 #home .left h1 {
   color: #fff;
-  font-size: 50px;
-  font-weight: 400;
+  font-size: var(--home-h1);
+  font-weight: var(--home-fw);
 }
 
 #home .left p {
   color: #fff;
-  font-size: 25px;
+  font-size: var(--home-p);
 }
 
 #home .left button {
@@ -103,5 +127,99 @@ nav ul li a:hover {
 #home .right img {
   height: auto;
   width: 100%;
-  mix-blend-mode: lighten;
+  /* mix-blend-mode: lighten; */
+  border-radius: 25px;
+}
+
+@media (max-width: 1440px) {
+  :root {
+    --pad-val: 10px 150px;
+  }
+}
+@media (max-width: 1024px) {
+  :root {
+    --pad-val: 10px 100px;
+    --nav-font: 16px;
+    --home-h1: 40px;
+    --home-p: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    text-align: center;
+    background: #070808;
+    gap: 0;
+
+    overflow: hidden;
+  }
+
+  #menuList {
+    transition: all 0.5s ease;
+  }
+  nav .menu-icon {
+    display: block;
+  }
+
+  nav ul li {
+    padding: 20px;
+  }
+
+  :root {
+    --pad-val: 10px 30px;
+    --nav-font: 18px;
+    --home-h1: 38px;
+    --home-p: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  :root {
+    --pad-val: 10px 30px;
+    --nav-font: 16px;
+    --home-h1: 36px;
+    --home-p: 16px;
+  }
+
+  #home {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #home .right {
+    margin-top: 60px;
+  }
+
+  #home .left button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    --pad-val: 10px 30px;
+    --nav-font: 14px;
+    --home-h1: 34px;
+    --home-p: 14px;
+  }
+
+  #home {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #home .right {
+    margin-top: 40px;
+  }
+
+  #home .left button {
+    width: 100%;
+  }
 }
